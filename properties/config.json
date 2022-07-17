@@ -1,0 +1,5 @@
+{
+    "tor": {
+        "proxy": "socks5://localhost:9050"
+    }
+}
