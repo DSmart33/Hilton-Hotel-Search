@@ -104,27 +104,14 @@ async def get_dates(accessToken, hotel, arrivalDate, month, year):
     #
     # Tor ProxyConnector
     #connector = ProxyConnector.from_url(configFile['tor']['proxy'], rdns=True)
-    
-    # async with aiohttp.ClientSession(raise_for_status=True) as session:
-    #     async with session.post('https://www.hilton.com/graphql/customer', params=params, headers=headers, json=json_data) as response:
-    #         print(response.status)
-    #         json_result = await response.json()
-    #         response.close()
-    #     await session.close()
 
     async with aiohttp.ClientSession(raise_for_status=True) as session:
         json_result = await req(session, 'https://www.hilton.com/graphql/customer', params, headers, json_data)
-        #if json_result['errors']:
-        #    json_result = await req(session, 'https://www.hilton.com/graphql/customer', params, headers, json_data)
+        # If the request returns an error repeat the request
+        while 'errors' in str(json_result):
+            json_result = await req(session, 'https://www.hilton.com/graphql/customer', params, headers, json_data)
         await session.close()
-
-    #response = requests.post('https://www.hilton.com/graphql/customer', params=params, headers=headers, json=json_data)
-
-    #print(response.status_code)
-
-    # Save the json response
-    #json_result = json.loads(response.text)
-
+        
     print('----------------')
     print(''+month+' '+year)
     print('----------------')
@@ -149,7 +136,5 @@ async def get_dates(accessToken, hotel, arrivalDate, month, year):
 
 @backoff.on_exception(backoff.expo, aiohttp.ClientError, max_tries=20)
 async def req(session, url, params, headers, json_data):
-    print('ping')
     async with session.post(url, params=params, headers=headers, json=json_data) as response:
-        print(response.status)
         return await response.json()

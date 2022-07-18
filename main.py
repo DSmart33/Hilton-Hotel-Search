@@ -51,12 +51,8 @@ async def main():
         # Get a new token
         accessToken = await get_accessToken()
 
-        await asyncio.sleep(5)
-
         # Request Dates
         await get_dates(accessToken, hotels[hotel], arrivalDate, month, year)
-
-        await asyncio.sleep(5)
 
         #
         #   December
@@ -65,15 +61,8 @@ async def main():
         month = 'December'
         year = '2022'
 
-        # Get a new token
-        accessToken = await get_accessToken()
-
-        await asyncio.sleep(5)
-
         # Request Dates
         await get_dates(accessToken, hotels[hotel], arrivalDate, month, year)
-
-        await asyncio.sleep(5)
 
         #
         #   January
@@ -82,15 +71,8 @@ async def main():
         month = 'January'
         year = '2023'
 
-        # Get a new token
-        accessToken = await get_accessToken()
-
-        await asyncio.sleep(5)
-
         # Request Dates
         await get_dates(accessToken, hotels[hotel], arrivalDate, month, year)
-
-        await asyncio.sleep(5)
 
         #
         #   February
@@ -99,15 +81,8 @@ async def main():
         month = 'February'
         year = '2023'
 
-        # Get a new token
-        accessToken = await get_accessToken()
-
-        await asyncio.sleep(5)
-
         # Request Dates
         await get_dates(accessToken, hotels[hotel], arrivalDate, month, year)
-
-        await asyncio.sleep(5)
 
         #
         #   March
@@ -116,15 +91,8 @@ async def main():
         month = 'March'
         year = '2023'
 
-        # Get a new token
-        accessToken = await get_accessToken()
-
-        await asyncio.sleep(5)
-
         # Request Dates
         await get_dates(accessToken, hotels[hotel], arrivalDate, month, year)
-
-        await asyncio.sleep(5)
 
         #
         #   April
@@ -133,20 +101,14 @@ async def main():
         month = 'April'
         year = '2023'
 
-        # Get a new token
-        accessToken = await get_accessToken()
-
-        await asyncio.sleep(5)
-
         # Request Dates
         await get_dates(accessToken, hotels[hotel], arrivalDate, month, year)
-
-        await asyncio.sleep(5)
 
         print('\n\n')
 
 
 if __name__ == '__main__':
+    # For old versions of python:
     # set another loop implementation:
-    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    #asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     asyncio.run(main())
