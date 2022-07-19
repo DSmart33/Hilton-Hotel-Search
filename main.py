@@ -16,8 +16,9 @@ async def main():
         'Waldorf Astoria Los Cabos Pedregal': 'SJDWAWA',
         'Conrad Koh Samui': 'USMKSCI',
         'Sea Breeze Santorini Beach Resort, Curio Collection by Hilton': 'JTRSBQQ',
-        'The Royal Senses Resort & Spa Crete, Curio Collection by Hilton': 'HERRSQQ'
-        
+        'The Royal Senses Resort & Spa Crete, Curio Collection by Hilton': 'HERRSQQ',
+        'Rome Cavalieri, A Waldorf Astoria Hotel': 'ROMHIWA',
+        'Hilton Molino Stucky Venice': 'VCEHIHI'
     }
 
     #
